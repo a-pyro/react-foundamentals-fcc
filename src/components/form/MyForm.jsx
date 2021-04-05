@@ -6,38 +6,28 @@ class MyForm extends React.Component {
     title: '',
   };
 
-  componentDidMount() {
-    console.log('mounted');
-  }
-
-  // componentDidUpdate() {
-  //   console.log('update');
-  // }
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.setAppQuerie(this.state.title);
+    this.props.setAppQuery(this.state.title);
   };
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
-    this.props.setAppQuerie(this.state.title);
   };
 
   render() {
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form className='w-50' onSubmit={this.handleSubmit}>
         <Form.Group controlId='formBasicEmail'>
           <Form.Control
+            className='text-center'
             onChange={this.handleChange}
             value={this.state.title}
             type='text'
             name='title'
-            placeholder='Enter Title'
+            placeholder='Enter a Title'
           />
         </Form.Group>
-        <Button variant='primary' type='submit'>
-          Submit
-        </Button>
       </Form>
     );
   }
